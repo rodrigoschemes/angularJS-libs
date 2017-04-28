@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-app="app">
+	
+	<div data-ng-controller="myController">
+		{{name}}
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+	<script>
+		angular
+			.module('app',[])
+			.controller('myController', function($scope, _, lodash){
+				$scope.name = 'School of Net';
+				console.log(_.capitalize('SON'));
+				console.log(lodash.capitalize('rodrigo'));
+			})
+			.constant('_', _)
+			.factory('lodash',function($window){
+				return $window._;
+			});
+
+	</script>
+</body>
+</html>
